@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<W7Layout dir="v" padding="28" gap="22">
+
+  <!-- Header -->
+  <W7Layout dir="h" align="center" gap="14" paddingRight="110">
+    <W7Image src="./assets/logo.svg" width="52" height="52" radius="14" shadow="0 10 24 #000000 0.4" />
+    <W7Layout dir="v" grow="1" shrink="1" gap="4">
+      <W7Layout dir="h" align="center" gap="10" wrap="true">
+        <W7Label fontSize="22" weight="700" letterSpacing="0.2" textShadow="0 2 8 rgba(0,0,0,0.35)">TUI - Three.js UI Editor</W7Label>
+        <W7Layout padding="3 10" radius="999" bg="#ffffff" bgOpacity="0.1" borderColor="#ffffff" borderOpacity="0.18">
+          <W7Label fontSize="11" weight="600" letterSpacing="0.4" color="rgba(255,255,255,0.8)">claude + William77</W7Label>
+        </W7Layout>
+      </W7Layout>
+      <W7Label fontSize="13" color="rgba(255,255,255,0.6)">你可以透過撰寫 xml 來生成 threejs 的 ui</W7Label>
+    </W7Layout>
+  </W7Layout>
+
+  <!-- Hero -->
+  <W7Layout height="150" radius="20" shadow="0 18 40 #000000 0.4">
+    <W7Image src="./assets/banner.svg" fit="cover" radius="20" borderColor="#ffffff" borderOpacity="0.14"
+             position="absolute" top="0" left="0" right="0" bottom="0" />
+    <W7Layout dir="v" grow="1" justify="end" padding="24" gap="14">
+      <W7Layout dir="v" gap="4">
+        <W7Label fontSize="11" weight="600" letterSpacing="2.5" color="rgba(255,255,255,0.6)">YOGA LAYOUT × THREE.JS</W7Label>
+        <W7Label fontSize="20" weight="700" textShadow="true">用 XML 描述，即時渲染成 3D 場景中的介面</W7Label>
+      </W7Layout>
+      <W7Layout dir="h" gap="10">
+        <W7Button id="start" onClick="start">開始</W7Button>
+        <W7Button id="settings" onClick="settings" bg="#3ee0a1" bgTo="#0e9f6e">設定</W7Button>
+        <W7Button id="locked" onClick="start" disabled="true" bg="#ffffff" bgTo="#ffffff" shadow="false">已停用</W7Button>
+      </W7Layout>
+    </W7Layout>
+  </W7Layout>
+
+  <!-- 水平 List -->
+  <W7Layout dir="v" gap="10">
+    <W7Label fontSize="12" weight="600" letterSpacing="1.5" color="rgba(255,255,255,0.55)">水平 W7LIST</W7Label>
+    <W7List type="h" height="132" gap="12" padding="0 0 12 0">
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon1.svg" width="56" height="56" shadow="0 8 16 #ff2d55 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Music</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon2.svg" width="56" height="56" shadow="0 8 16 #ff7a00 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Camera</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon3.svg" width="56" height="56" shadow="0 8 16 #2563eb 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Maps</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon4.svg" width="56" height="56" shadow="0 8 16 #0fa968 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Messages</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon5.svg" width="56" height="56" shadow="0 8 16 #6d4aff 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Stats</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon6.svg" width="56" height="56" shadow="0 8 16 #1f9fd0 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Cloud</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon1.svg" width="56" height="56" shadow="0 8 16 #ff2d55 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Podcasts</W7Label>
+      </W7Layout>
+      <W7Layout dir="v" width="108" align="center" justify="center" gap="10" padding="14" radius="18" bg="#ffffff" bgOpacity="0.07" borderColor="#ffffff" borderOpacity="0.1">
+        <W7Image src="./assets/icon3.svg" width="56" height="56" shadow="0 8 16 #2563eb 0.35" radius="14" />
+        <W7Label fontSize="12" weight="500" color="rgba(255,255,255,0.85)">Travel</W7Label>
+      </W7Layout>
+    </W7List>
+  </W7Layout>
+
+  <W7Layout dir="h" grow="1" gap="18">
+
+    <!-- 垂直 List -->
+    <W7Layout dir="v" grow="1" basis="0" gap="10">
+      <W7Label fontSize="12" weight="600" letterSpacing="1.5" color="rgba(255,255,255,0.55)">垂直 W7LIST</W7Label>
+      <W7List type="v" grow="1" basis="0" gap="8" padding="10" radius="20" bg="#0a0a14" bgOpacity="0.35" borderColor="#ffffff" borderOpacity="0.1" shadow="0 16 40 #000000 0.3">
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon1.svg" width="40" height="40" radius="11" />
+          <W7Layout dir="v" grow="1" shrink="1" gap="2">
+            <W7Label fontSize="14" weight="600">第一項</W7Label>
+            <W7Label fontSize="12" color="rgba(255,255,255,0.55)">文字會依寬度自動換行，中英文混排 mixed text wrapping</W7Label>
+          </W7Layout>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon2.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第二項</W7Label>
+          <W7Button id="item2" onClick="select" padding="6 14" fontSize="12" radius="999">選擇</W7Button>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon3.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第三項</W7Label>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon4.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第四項</W7Label>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon5.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第五項</W7Label>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon6.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第六項</W7Label>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon1.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第七項</W7Label>
+        </W7Layout>
+        <W7Layout dir="h" align="center" gap="12" padding="10 12" radius="14" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06">
+          <W7Image src="./assets/icon2.svg" width="40" height="40" radius="11" />
+          <W7Label grow="1" shrink="1" fontSize="14" weight="600">第八項</W7Label>
+        </W7Layout>
+      </W7List>
+    </W7Layout>
+
+    <!-- Grid List -->
+    <W7Layout dir="v" grow="1" basis="0" gap="10">
+      <W7Label fontSize="12" weight="600" letterSpacing="1.5" color="rgba(255,255,255,0.55)">GRID W7LIST · COLS=3</W7Label>
+      <W7List type="grid" cols="3" gap="10" cellHeight="84" grow="1" basis="0" padding="10" radius="20" bg="#0a0a14" bgOpacity="0.35" borderColor="#ffffff" borderOpacity="0.1" shadow="0 16 40 #000000 0.3">
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon1.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon2.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon3.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon4.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon5.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon6.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon1.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon2.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon3.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon4.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon5.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon6.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon1.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon2.svg" width="48" height="48" radius="12" /></W7Layout>
+        <W7Layout align="center" justify="center" radius="16" bg="#ffffff" bgOpacity="0.06" borderColor="#ffffff" borderOpacity="0.06"><W7Image src="./assets/icon3.svg" width="48" height="48" radius="12" /></W7Layout>
+      </W7List>
+    </W7Layout>
+
+  </W7Layout>
+</W7Layout>

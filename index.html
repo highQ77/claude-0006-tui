@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TUI</title>
+  <style>
+    :root {
+      --editor-w: min(520px, 50vw);
+      --editor-h: 50vh;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+    }
+
+    #app {
+      position: fixed;
+      inset: 0;
+    }
+
+    #error {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      display: none;
+      z-index: 2;
+      padding: 12px 16px;
+      border-radius: 6px;
+      background: #3a0d12;
+      color: #ffb4b4;
+      font: 13px/1.5 ui-monospace, Menlo, monospace;
+      white-space: pre-wrap;
+      max-height: 40vh;
+      overflow: auto;
+    }
+
+    #editor-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 3;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font: 600 13px -apple-system, BlinkMacSystemFont, "PingFang TC", system-ui, sans-serif;
+      backdrop-filter: blur(14px) saturate(140%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      transition: background 0.15s;
+    }
+
+    #editor-toggle:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    #editor-toggle .badge {
+      color: #ffd166;
+      font-weight: 400;
+    }
+
+    #editor {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: var(--editor-w);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      background: #16171d;
+      color: #d6d8e1;
+      font: 13px system-ui, sans-serif;
+      border-left: 1px solid #2a2c38;
+    }
+
+    #editor[hidden] {
+      display: none;
+    }
+
+    #editor header,
+    #editor footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+    }
+
+    #editor header {
+      border-bottom: 1px solid #2a2c38;
+      padding-right: 130px;
+    }
+
+    #editor footer {
+      border-top: 1px solid #2a2c38;
+      flex-wrap: wrap;
+    }
+
+    #editor-status {
+      color: #8a8fa3;
+      flex: 1;
+    }
+
+    #editor-status.ok {
+      color: #6fdc9b;
+    }
+
+    #editor-status.err {
+      color: #ff8a8a;
+    }
+
+    #editor-status.dirty {
+      color: #ffd166;
+    }
+
+    #editor textarea {
+      flex: 1;
+      resize: none;
+      border: 0;
+      outline: none;
+      padding: 12px;
+      background: #0f1015;
+      color: #e6e8f0;
+      tab-size: 2;
+      font: 13px/1.6 ui-monospace, Menlo, Consolas, monospace;
+      white-space: pre;
+      overflow: auto;
+    }
+
+    #editor button {
+      padding: 6px 12px;
+      border: 1px solid #343747;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #232530;
+      color: #e6e8f0;
+      font: inherit;
+    }
+
+    #editor button:hover {
+      background: #2d3040;
+    }
+
+    #editor button.primary {
+      background: #4f6bff;
+      border-color: #4f6bff;
+    }
+
+    #editor footer label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: auto;
+    }
+
+    body.editing #app,
+    body.editing #error {
+      right: var(--editor-w);
+    }
+
+    @media (max-width: 720px) {
+      #editor {
+        top: auto;
+        left: 0;
+        width: auto;
+        height: var(--editor-h);
+        border-left: 0;
+        border-top: 1px solid #2a2c38;
+      }
+
+      #editor header {
+        padding-right: 12px;
+      }
+
+      body.editing #app,
+      body.editing #error {
+        right: 0;
+        bottom: var(--editor-h);
+      }
+    }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "yoga-layout": "https://cdn.jsdelivr.net/npm/yoga-layout@3.2.1/+esm"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <pre id="error"></pre>
+
+  <button id="editor-toggle" type="button">編輯 XML</button>
+  <aside id="editor" hidden>
+    <header>
+      <strong>scene.xml</strong>
+      <span id="editor-status"></span>
+    </header>
+    <textarea id="editor-text" spellcheck="false" autocomplete="off"></textarea>
+    <footer>
+      <label><input id="editor-live" type="checkbox" checked /> 即時套用</label>
+      <button type="button" data-act="apply" class="primary" title="Ctrl/⌘ + Enter">套用</button>
+      <button type="button" data-act="reset" title="捨棄修改，載入磁碟上的 scene.xml 並恢復熱更新">重設</button>
+      <button type="button" data-act="download">下載</button>
+    </footer>
+  </aside>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7a9a"/>
+      <stop offset="1" stop-color="#ff2d55"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.38"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="s" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="url(#bg)"/>
+  <rect width="128" height="128" rx="30" fill="url(#gloss)"/>
+  <rect x="1" y="1" width="126" height="126" rx="29" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="2"/>
+  <g filter="url(#s)" fill="#ffffff">
+    <path d="M54 84 V38 L90 30 V76" fill="none" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+    <ellipse cx="44" cy="86" rx="12" ry="9.5" transform="rotate(-18 44 86)"/>
+    <ellipse cx="80" cy="78" rx="12" ry="9.5" transform="rotate(-18 80 78)"/>
+  </g>
+</svg>
